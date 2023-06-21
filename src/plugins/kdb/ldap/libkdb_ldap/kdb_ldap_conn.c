@@ -213,11 +213,11 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     krb5_ldap_server_info *info;
     struct timeval local_timelimit = { 10, 0 };
 
+    printf("SAFDSFSADFAF");
     ret = validate_context(context, ctx);
     if (ret)
         return ret;
 
-    printf("SAFDSFSADFAF");
 #ifdef LDAP_OPT_DEBUG_LEVEL
     ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, &ctx->ldap_debug);
 #endif
