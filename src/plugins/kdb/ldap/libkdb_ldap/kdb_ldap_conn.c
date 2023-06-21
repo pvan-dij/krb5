@@ -213,7 +213,6 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     krb5_ldap_server_info *info;
     struct timeval local_timelimit = { 10, 0 };
 
-    printf("SAFDSFSADFAF");
     ret = validate_context(context, ctx);
     if (ret)
         return ret;
@@ -253,6 +252,8 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
         }
     }
     HNDL_UNLOCK(ctx);
+
+    printf("SAFDSFSADFAF");
 
     return ret;
 }
