@@ -217,6 +217,7 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     if (ret)
         return ret;
 
+    printf("SAFDSFSADFAF");
 #ifdef LDAP_OPT_DEBUG_LEVEL
     ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, &ctx->ldap_debug);
 #endif
@@ -227,7 +228,6 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     ldap_set_option(NULL, LDAP_X_OPT_CONNECT_TIMEOUT, &local_timelimit);
 #endif
 
-    printf("SAFDSFSADFAF");
     HNDL_LOCK(ctx);
     for (i = 0; ctx->server_info_list[i] != NULL; i++) {
         info = ctx->server_info_list[i];
