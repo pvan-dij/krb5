@@ -81,6 +81,8 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
     }
     set_cloexec_file(fp);
 
+    printf("beuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
+
     while (fgets(line, RECORDLEN, fp) != NULL) {
         /* Remove trailing newline. */
         end = line + strlen(line);

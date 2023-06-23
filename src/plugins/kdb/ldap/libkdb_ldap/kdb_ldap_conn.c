@@ -71,7 +71,6 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         return EINVAL;
     }
 
-    printf("bruhDGASFSFASFDSFASFSFAAADKFLSFJKSJFIWOFNWOIENFWN\n");
     if (ctx->bind_pwd == NULL && ctx->service_password_file != NULL) {
         ret = krb5_ldap_readpassword(context, ctx->service_password_file,
                                      ctx->bind_dn, &ctx->bind_pwd);
