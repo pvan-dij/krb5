@@ -135,7 +135,6 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
     int st;
     struct berval bv;
 
-    printf("BIG LOLS TO BE HAD\n");
 
     if (ctx->sasl_mech != NULL) {
         st = ldap_sasl_interactive_bind_s(server->ldap_handle, NULL,
@@ -148,13 +147,13 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
                       ctx->sasl_mech, ldap_err2string(st));
             return KRB5_KDB_ACCESS_ERROR;
         }
-        printf("DADSFDSFSADJFSKLFJLSKDJFKLDSJKLFSJFLKSJ\n");
     } else {
         /* Do a simple bind with DN and password. */
         bv.bv_val = ctx->bind_pwd;
         bv.bv_len = strlen(ctx->bind_pwd);
         st = ldap_sasl_bind_s(server->ldap_handle, ctx->bind_dn, NULL, &bv,
                               NULL, NULL, NULL);
+        printf("BIG LOLS TO BE HAD\n");
         if (st != LDAP_SUCCESS) {
             k5_setmsg(ctx->kcontext, KRB5_KDB_ACCESS_ERROR,
                       _("Cannot bind to LDAP server '%s' as '%s': %s"),
@@ -162,6 +161,7 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
                       ldap_err2string(st));
             return KRB5_KDB_ACCESS_ERROR;
         }
+        printf("DADSFDSFSADJFSKLFJLSKDJFKLDSJKLFSJFLKSJ\n");
     }
     return 0;
 }
