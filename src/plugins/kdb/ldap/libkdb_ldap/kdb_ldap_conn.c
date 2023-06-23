@@ -170,12 +170,11 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
     krb5_error_code ret;
     int st;
 
-    prinf("STEP 1");
     server = calloc(1, sizeof(krb5_ldap_server_handle));
     if (server == NULL)
         return ENOMEM;
     server->server_info = info;
-    prinf("STEP 2");
+    prinf("STEP 1");
 
     st = ldap_initialize(&server->ldap_handle, info->server_name);
     if (st) {
@@ -185,7 +184,6 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
                   info->server_name, ldap_err2string(st));
         return KRB5_KDB_ACCESS_ERROR;
     }
-    prinf("STEP 3");
 
 
     ret = authenticate(ldap_context, server);
@@ -196,7 +194,6 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
         return ret;
     }
 
-    prinf("STEP 4");
 
     server->next = info->ldap_server_handles;
     info->ldap_server_handles = server;
