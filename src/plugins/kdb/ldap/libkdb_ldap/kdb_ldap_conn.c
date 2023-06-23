@@ -58,7 +58,6 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         return 0;
     }
 
-    printf("bruhDGASFSFASFDSFASFSFAAADKFLSFJKSJFIWOFNWOIENFWN\n");
 
     /* For a simple bind, a DN and password are required. */
 
@@ -82,6 +81,7 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         }
     }
 
+    printf("bruhDGASFSFASFDSFASFSFAAADKFLSFJKSJFIWOFNWOIENFWN\n");
     /* An empty password is not allowed. */
     if (*ctx->bind_pwd == '\0') {
         k5_setmsg(context, EINVAL, _("Service password length is zero"));
