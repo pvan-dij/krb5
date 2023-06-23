@@ -81,16 +81,12 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
     }
     set_cloexec_file(fp);
 
-    printf("OPENING LDAP FILE %s\n", filename);
-
     while (fgets(line, RECORDLEN, fp) != NULL) {
         /* Remove trailing newline. */
         end = line + strlen(line);
         if (end > line && end[-1] == '\n')
             end[-1] = '\0';
 
-        printf("line: %s\n", line);
-        
         /* Skip past leading whitespace. */
         for (start = line; isspace(*start); ++start);
 
@@ -99,11 +95,6 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
             continue;
 
         sep = strchr(start, '#');
-        printf("sep: %s\n", sep);
-        printf("sep len comp: %d vs namelen: %d\n", sep - start, namelen);
-        printf("start line: %s\n", start);
-        printf("Name line-: %s\n", name);
-        printf("comp res: %d\n", strncasecmp(start, name, namelen));
         if (sep != NULL && sep - start == namelen &&
             strncasecmp(start, name, namelen) == 0) {
             val = sep + 1;
@@ -112,8 +103,6 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
     }
     fclose(fp);
 
-    printf("val: %s\n", val);
-
     if (val == NULL) {
         k5_setmsg(context, KRB5_KDB_SERVER_INTERNAL_ERR,
                   _("Bind DN entry '%s' missing in LDAP password file '%s'"),
@@ -121,7 +110,6 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
         return KRB5_KDB_SERVER_INTERNAL_ERR;
     }
 
-    printf("bdeuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
     /* Extract the plain password information. */
     return dec_password(context, val, password_out);
 }
