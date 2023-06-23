@@ -239,7 +239,7 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
 #else
             info->modify_increment = 0;
 #endif
-            printf("INFO STUFF: %s", info->server_name);
+            printf("INFO STUFF: %s\n", info->server_name);
             for (conns = 0; conns < ctx->max_server_conns; conns++) {
                 printf("RIGHT NOW RET IS %d\n", ret);
                 ret = initialize_server(ctx, info);
