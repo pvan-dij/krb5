@@ -135,6 +135,8 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
     int st;
     struct berval bv;
 
+    // printf("BIG LOLS TO BE HAD\n");
+
     if (ctx->sasl_mech != NULL) {
         st = ldap_sasl_interactive_bind_s(server->ldap_handle, NULL,
                                           ctx->sasl_mech, NULL, NULL,
@@ -244,9 +246,9 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
                 printf("RIGHT NOW RET IS %d\n", ret);
                 ret = initialize_server(ctx, info);
                 printf("NOW RET IS %d\n", ret);
-                // printf("SERVER NAME AFTER: %s\n", info->server_name);
-                printf("SERVER STATUS: %d\n", info->server_status)
-                // printf("SERVER STATUS == OFF?: %d\n", info->server_status == OFF)
+                printf("SERVER NAME AFTER: %s\n", info->server_name);
+                printf("SERVER STATUS: %d\n", info->server_status);
+                printf("SERVER STATUS == OFF?: %d\n", info->server_status == OFF);
                 if (ret)
                     break;
             }
