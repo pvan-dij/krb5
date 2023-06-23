@@ -148,6 +148,7 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
                       ctx->sasl_mech, ldap_err2string(st));
             return KRB5_KDB_ACCESS_ERROR;
         }
+        printf("DADSFDSFSADJFSKLFJLSKDJFKLDSJKLFSJFLKSJ\n");
     } else {
         /* Do a simple bind with DN and password. */
         bv.bv_val = ctx->bind_pwd;
@@ -162,7 +163,6 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
             return KRB5_KDB_ACCESS_ERROR;
         }
     }
-    printf("DADSFDSFSADJFSKLFJLSKDJFKLDSJKLFSJFLKSJ\n");
     return 0;
 }
 
