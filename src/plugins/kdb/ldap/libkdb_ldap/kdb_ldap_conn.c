@@ -244,6 +244,9 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
                 printf("RIGHT NOW RET IS %d\n", ret);
                 ret = initialize_server(ctx, info);
                 printf("NOW RET IS %d\n", ret);
+                printf("SERVER NAME AFTER: %s\n", info->server_name);
+                printf("SERVER STATUS: %d\n", info->server_status)
+                printf("SERVER STATUS == OFF?: %d\n", info->server_status == OFF)
                 if (ret)
                     break;
             }
