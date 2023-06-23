@@ -103,6 +103,7 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
         printf("sep len comp: %d vs namelen: %d\n", sep - start, namelen);
         printf("start line: %s\n", start);
         printf("Name line-: %s\n", name);
+        printf("comp res: %d\n", strncasecmp(start, name, namelen));
         if (sep != NULL && sep - start == namelen &&
             strncasecmp(start, name, namelen) == 0) {
             val = sep + 1;
