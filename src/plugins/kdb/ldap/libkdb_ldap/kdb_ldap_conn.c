@@ -71,6 +71,7 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         return EINVAL;
     }
 
+    printf("bruhDGASFSFASFDSFASFSFAAADKFLSFJKSJFIWOFNWOIENFWN\n");
     if (ctx->bind_pwd == NULL && ctx->service_password_file != NULL) {
         ret = krb5_ldap_readpassword(context, ctx->service_password_file,
                                      ctx->bind_dn, &ctx->bind_pwd);
@@ -81,7 +82,6 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         }
     }
 
-    printf("bruhDGASFSFASFDSFASFSFAAADKFLSFJKSJFIWOFNWOIENFWN\n");
     /* An empty password is not allowed. */
     if (*ctx->bind_pwd == '\0') {
         k5_setmsg(context, EINVAL, _("Service password length is zero"));
