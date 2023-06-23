@@ -153,6 +153,7 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
         bv.bv_len = strlen(ctx->bind_pwd);
         printf("bind_dn: %s\n", ctx->bind_dn);
         printf("bind_pwd: %s\n", ctx->bind_pwd);
+        printf("AAAA: %d\n", ctx->ldap_debug);
         st = ldap_sasl_bind_s(server->ldap_handle, ctx->bind_dn, NULL, &bv,
                               NULL, NULL, NULL);
         if (st != LDAP_SUCCESS) {
