@@ -103,7 +103,6 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
         }
     }
     fclose(fp);
-    printf("bdeuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
 
     if (val == NULL) {
         k5_setmsg(context, KRB5_KDB_SERVER_INTERNAL_ERR,
@@ -112,6 +111,7 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
         return KRB5_KDB_SERVER_INTERNAL_ERR;
     }
 
+    printf("bdeuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
     /* Extract the plain password information. */
     return dec_password(context, val, password_out);
 }
