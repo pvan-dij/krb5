@@ -170,13 +170,10 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
     krb5_error_code ret;
     int st;
 
-    printf("WECHECKINGTHISFUNCTION NOW1");
     server = calloc(1, sizeof(krb5_ldap_server_handle));
     if (server == NULL)
         return ENOMEM;
     server->server_info = info;
-
-    printf("WECHECKINGTHISFUNCTION NOW2");
 
     st = ldap_initialize(&server->ldap_handle, info->server_name);
     if (st) {
@@ -187,8 +184,6 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
         return KRB5_KDB_ACCESS_ERROR;
     }
 
-    printf("WECHECKINGTHISFUNCTION NOW3");
-
     ret = authenticate(ldap_context, server);
     if (ret) {
         info->server_status = OFF;
@@ -196,7 +191,6 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
         free(server);
         return ret;
     }
-    printf("WECHECKINGTHISFUNCTION NOW4");
 
     server->next = info->ldap_server_handles;
     info->ldap_server_handles = server;
@@ -218,6 +212,7 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     krb5_ldap_server_info *info;
     struct timeval local_timelimit = { 10, 0 };
 
+
     ret = validate_context(context, ctx);
     if (ret)
         return ret;
@@ -232,6 +227,7 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     ldap_set_option(NULL, LDAP_X_OPT_CONNECT_TIMEOUT, &local_timelimit);
 #endif
 
+    printf("RIGHT NOW RET IS %d\n", ret);
 
     HNDL_LOCK(ctx);
     for (i = 0; ctx->server_info_list[i] != NULL; i++) {
@@ -259,7 +255,7 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     }
     HNDL_UNLOCK(ctx);
 
-    printf("BRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUH1234\n");
+    printf("EXITING WITH STATUS CODE: %d\n", ret);
 
     return ret;
 }
