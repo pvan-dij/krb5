@@ -82,6 +82,7 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
     set_cloexec_file(fp);
 
     printf("OPENING LDAP FILE %s\n", filename);
+    printf("Name = %s with namelen: %d", name, namelen);
 
     while (fgets(line, RECORDLEN, fp) != NULL) {
         /* Remove trailing newline. */
