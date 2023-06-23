@@ -85,6 +85,7 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
 
     while (fgets(line, RECORDLEN, fp) != NULL) {
         /* Remove trailing newline. */
+        printf("line: %s", line);
         end = line + strlen(line);
         if (end > line && end[-1] == '\n')
             end[-1] = '\0';
