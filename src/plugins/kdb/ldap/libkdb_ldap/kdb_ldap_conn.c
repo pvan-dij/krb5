@@ -68,7 +68,6 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         k5_setmsg(context, EINVAL, _("LDAP bind password value missing"));
         return EINVAL;
     }
-    printf("SDLKFJLASDJFLSAJLKFJSLFJASFJDKSF123455\n");
 
     if (ctx->bind_pwd == NULL && ctx->service_password_file != NULL) {
         ret = krb5_ldap_readpassword(context, ctx->service_password_file,
@@ -79,8 +78,6 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
             return ret;
         }
     }
-
-    printf("SDLKFJLASDJFLSAJLKFJSLFJASFJDKSF\n");
 
     /* An empty password is not allowed. */
     if (*ctx->bind_pwd == '\0') {
@@ -229,6 +226,8 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     ldap_set_option(NULL, LDAP_X_OPT_CONNECT_TIMEOUT, &local_timelimit);
 #endif
 
+    printf("BRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUH1234\n");
+
     HNDL_LOCK(ctx);
     for (i = 0; ctx->server_info_list[i] != NULL; i++) {
         info = ctx->server_info_list[i];
@@ -255,6 +254,7 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     }
     HNDL_UNLOCK(ctx);
 
+    printf("BRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUHBRUH\n");
 
     return ret;
 }
