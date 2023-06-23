@@ -174,7 +174,6 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
     if (server == NULL)
         return ENOMEM;
     server->server_info = info;
-    prinf("STEP 1");
 
     st = ldap_initialize(&server->ldap_handle, info->server_name);
     if (st) {
@@ -185,7 +184,6 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
         return KRB5_KDB_ACCESS_ERROR;
     }
 
-
     ret = authenticate(ldap_context, server);
     if (ret) {
         info->server_status = OFF;
@@ -193,7 +191,6 @@ initialize_server(krb5_ldap_context *ldap_context, krb5_ldap_server_info *info)
         free(server);
         return ret;
     }
-
 
     server->next = info->ldap_server_handles;
     info->ldap_server_handles = server;
@@ -242,7 +239,7 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
 #else
             info->modify_increment = 0;
 #endif
-
+            printf("INFO STUFF: %s", info->server_name);
             for (conns = 0; conns < ctx->max_server_conns; conns++) {
                 printf("RIGHT NOW RET IS %d\n", ret);
                 ret = initialize_server(ctx, info);
