@@ -227,8 +227,6 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
     ldap_set_option(NULL, LDAP_X_OPT_CONNECT_TIMEOUT, &local_timelimit);
 #endif
 
-    printf("RIGHT NOW RET IS %d\n", ret);
-
     HNDL_LOCK(ctx);
     for (i = 0; ctx->server_info_list[i] != NULL; i++) {
         info = ctx->server_info_list[i];
@@ -243,7 +241,9 @@ krb5_ldap_db_init(krb5_context context, krb5_ldap_context *ctx)
 #endif
 
             for (conns = 0; conns < ctx->max_server_conns; conns++) {
+                printf("RIGHT NOW RET IS %d\n", ret);
                 ret = initialize_server(ctx, info);
+                printf("NOW RET IS %d\n", ret);
                 if (ret)
                     break;
             }
