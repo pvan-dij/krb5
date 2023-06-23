@@ -58,9 +58,7 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         return 0;
     }
 
-    printf("SDLKFJLASDJFLSAJLKFJSLFJASFJDKSF\n");
     /* For a simple bind, a DN and password are required. */
-
     if (ctx->bind_dn == NULL) {
         k5_setmsg(context, EINVAL, _("LDAP bind dn value missing"));
         return EINVAL;
@@ -70,6 +68,7 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         k5_setmsg(context, EINVAL, _("LDAP bind password value missing"));
         return EINVAL;
     }
+    printf("SDLKFJLASDJFLSAJLKFJSLFJASFJDKSF123455\n");
 
     if (ctx->bind_pwd == NULL && ctx->service_password_file != NULL) {
         ret = krb5_ldap_readpassword(context, ctx->service_password_file,
@@ -80,6 +79,8 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
             return ret;
         }
     }
+
+    printf("SDLKFJLASDJFLSAJLKFJSLFJASFJDKSF\n");
 
     /* An empty password is not allowed. */
     if (*ctx->bind_pwd == '\0') {
