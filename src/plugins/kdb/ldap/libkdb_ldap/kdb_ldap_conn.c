@@ -151,9 +151,10 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
         /* Do a simple bind with DN and password. */
         bv.bv_val = ctx->bind_pwd;
         bv.bv_len = strlen(ctx->bind_pwd);
+        printf("bind_dn: %s\n", ctx->bind_dn);
+        printf("bind_pwd: %s\n", ctx->bind_pwd);
         st = ldap_sasl_bind_s(server->ldap_handle, ctx->bind_dn, NULL, &bv,
                               NULL, NULL, NULL);
-        printf("BIG LOLS TO BE HAD\n");
         if (st != LDAP_SUCCESS) {
             k5_setmsg(ctx->kcontext, KRB5_KDB_ACCESS_ERROR,
                       _("Cannot bind to LDAP server '%s' as '%s': %s"),
@@ -161,7 +162,6 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
                       ldap_err2string(st));
             return KRB5_KDB_ACCESS_ERROR;
         }
-        printf("DADSFDSFSADJFSKLFJLSKDJFKLDSJKLFSJFLKSJ\n");
     }
     return 0;
 }
