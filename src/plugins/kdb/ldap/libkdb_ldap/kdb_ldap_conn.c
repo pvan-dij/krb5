@@ -58,6 +58,8 @@ validate_context(krb5_context context, krb5_ldap_context *ctx)
         return 0;
     }
 
+    printf("bruhDGASFSFASFDSFASFSFAAADKFLSFJKSJFIWOFNWOIENFWN\n");
+
     /* For a simple bind, a DN and password are required. */
 
     if (ctx->bind_dn == NULL) {
