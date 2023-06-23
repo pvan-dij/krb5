@@ -103,7 +103,7 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
         }
     }
     fclose(fp);
-    printf("beuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
+    printf("bdeuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
 
     if (val == NULL) {
         k5_setmsg(context, KRB5_KDB_SERVER_INTERNAL_ERR,
