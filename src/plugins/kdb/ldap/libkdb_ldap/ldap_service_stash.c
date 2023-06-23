@@ -102,7 +102,6 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
             val = sep + 1;
             break;
         }
-        printf('HUH\n');
     }
     fclose(fp);
 
