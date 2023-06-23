@@ -81,7 +81,6 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
     }
     set_cloexec_file(fp);
 
-    printf("beuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
 
     while (fgets(line, RECORDLEN, fp) != NULL) {
         /* Remove trailing newline. */
@@ -104,6 +103,7 @@ krb5_ldap_readpassword(krb5_context context, const char *filename,
         }
     }
     fclose(fp);
+    printf("beuhJFLKSDFLADJSLKADSLFJSDLKFSDAJLKFSKLFJKLS;DAJF\n");
 
     if (val == NULL) {
         k5_setmsg(context, KRB5_KDB_SERVER_INTERNAL_ERR,
