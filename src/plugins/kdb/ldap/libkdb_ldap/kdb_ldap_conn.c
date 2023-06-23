@@ -135,7 +135,7 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
     int st;
     struct berval bv;
 
-    // printf("BIG LOLS TO BE HAD\n");
+    printf("BIG LOLS TO BE HAD\n");
 
     if (ctx->sasl_mech != NULL) {
         st = ldap_sasl_interactive_bind_s(server->ldap_handle, NULL,
