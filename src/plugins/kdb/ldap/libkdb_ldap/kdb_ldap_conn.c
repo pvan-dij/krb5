@@ -162,6 +162,7 @@ authenticate(krb5_ldap_context *ctx, krb5_ldap_server_handle *server)
             return KRB5_KDB_ACCESS_ERROR;
         }
     }
+    printf("DADSFDSFSADJFSKLFJLSKDJFKLDSJKLFSJFLKSJ\n");
     return 0;
 }
 
